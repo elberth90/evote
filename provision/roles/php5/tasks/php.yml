@@ -3,3 +3,9 @@
   apt:
     pkg: php5-fpm
     state: present
+
+- name: Install php5-mysql
+  apt:
+    pkg: php5-mysql
+    state: present
+  notify: Restart php5-fpm
