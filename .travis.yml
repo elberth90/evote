@@ -11,7 +11,7 @@ php:
 before_script:
   - cd evote_app
   - composer self-update
-  - composer install -n
+  - comgit puposer install -n
 
 # omitting "script:" will default to phpunit
 # use the $DB env variable to determine the phpunit.xml to use
