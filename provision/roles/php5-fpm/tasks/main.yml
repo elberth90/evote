@@ -1,3 +1,0 @@
----
-- name: Install php5-fpm
-  include: php.yml tags=php
