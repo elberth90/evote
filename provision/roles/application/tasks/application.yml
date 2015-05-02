@@ -1,0 +1,11 @@
+---
+- name: Creat www directory for nginx
+  file:
+    path: /usr/share/nginx/www
+    state: directory
+
+- name: Create symlink from app to nginx
+  file:
+    src: /vagrant/evote_app
+    dest: /usr/share/nginx/www/evote
+    state: link

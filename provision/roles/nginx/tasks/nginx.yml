@@ -1,0 +1,29 @@
+---
+- name: Install nginx
+  apt:
+    pkg: nginx
+    state: present
+
+- name: Remove default site config
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+
+- name: Copy new site config
+  copy:
+    src: evote
+    dest: /etc/nginx/sites-available/evote
+  notify: Restart nginx
+
+- name: Create symlink to site config
+  file:
+    src: /etc/nginx/sites-available/evote
+    dest: /etc/nginx/sites-enabled/evote
+    state: link
+
+- name: Ensure nginx is running
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+

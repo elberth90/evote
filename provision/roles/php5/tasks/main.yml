@@ -1,0 +1,6 @@
+---
+- name: Install php5-fpm
+  include: php.yml tags=php
+
+- name: Install composer
+  include: composer.yml tags=php

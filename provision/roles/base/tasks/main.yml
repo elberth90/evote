@@ -1,0 +1,6 @@
+---
+- name: Configure basic stuff on the server
+  include: basics.yml tags=base
+
+- name: Reconfigure locales
+  include: locales.yml tags=base

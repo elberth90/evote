@@ -1,0 +1,3 @@
+---
+- name: Configure application
+  include: application.yml tags=application

@@ -1,0 +1,38 @@
+---
+- name: Perform system upgrade
+  apt: upgrade=dist update_cache=yes
+
+- name: install base/minimum packages
+  apt: pkg={{ item }} state=present
+  with_items:
+    - sysstat
+    - etckeeper
+    - cron-apt
+    - sudo
+    - vim
+    - aptitude
+    - python-apt
+    - python-pycurl
+    - less
+    - debian-keyring
+    - debian-archive-keyring
+    - moreutils
+    - iproute
+    - tree
+    - lsof
+    - telnet
+    - netcat
+    - strace
+    - bind9-host
+    - dnsutils
+    - iptables
+    - psmisc
+    - tcpdump
+    - ca-certificates
+    - bmon
+    - htop
+    - ncdu
+    - mtr-tiny
+    - vim-nox
+    - pv
+    - pbzip2

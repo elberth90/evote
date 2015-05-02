@@ -1,0 +1,4 @@
+---
+- name: Put locales configuration file
+  copy: src=locale.gen dest=/etc/locale.gen
+  notify: Regenerate locales

@@ -1,0 +1,25 @@
+---
+- name: Check if composer is already installed
+  stat:
+    path: /usr/local/bin/composer
+  register: composer_bin_file
+
+- name: Download composer
+  get_url:
+    url: https://getcomposer.org/installer
+    dest: /tmp/installer
+    mode: 0755
+    owner: root
+    group: root
+  when: composer_bin_file.stat.exists == false
+
+- name: Install composer
+  command: php /tmp/installer
+  args:
+    chdir: /tmp
+    creates: composer.phar
+  when: composer_bin_file.stat.exists == false
+
+- name: Copy composer into PATH dir
+  command: cp /tmp/composer.phar /usr/local/bin/composer
+  when: composer_bin_file.stat.exists == false
